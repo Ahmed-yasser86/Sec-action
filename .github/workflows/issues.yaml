@@ -1,0 +1,13 @@
+name: Test Workflow
+
+on: issues
+
+jobs:
+
+  issue:
+
+   runs-on: ubuntu-latest
+
+   steps:
+      - name: Checkout
+        run: echo "${{toJSON( github.event )}}"
