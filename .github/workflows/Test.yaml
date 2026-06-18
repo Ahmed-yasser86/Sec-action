@@ -1,8 +1,23 @@
 name: Test Workflow
 
-on: push
+on: [push,workflow_dispatch]
 
 jobs:
+
+  lint:
+
+   runs-on: ubuntu-latest
+
+   steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: lintng
+        run: npm run lint
+
   Test:
     runs-on: ubuntu-latest
 
