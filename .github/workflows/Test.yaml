@@ -3,7 +3,7 @@ name: Test Workflow
 on: push
 
 jobs:
-  tests:
+  Test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,6 +17,7 @@ jobs:
         run: npm test
 
   deploy:
+    needs: Test
     runs-on: ubuntu-latest
 
     steps:
