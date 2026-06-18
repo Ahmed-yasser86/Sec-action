@@ -1,6 +1,26 @@
 name: Test Workflow
 
-on: [push,workflow_dispatch]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'dev-*'
+      - dev
+    paths-ignore:
+      - '.github/workflows/*'
+
+
+  pull_request:
+    types:
+      - opened
+      - edited 
+    branches:
+       - main
+       - 'dev-*'
+       - dev
+
+
 
 jobs:
 
